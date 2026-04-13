@@ -1,0 +1,25 @@
+---
+- name: configure tomcat10
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install Tomcat10
+      ansible.builtin.apt:
+        name: tomcat10
+        state: present
+        update_cache: yes
+    - name: Copy tomcat-user.xml file 
+      ansible.builtin.copy:
+        src: /home/ansadmin/myproject/tomcat-user.xml
+        dest: /etc/tomcat10
+    - name: change port 8080 to 9090
+      ansible.builtin.replace:
+        regexp: 8080
+        replace: 9090
+        path: /etc/tomcat10/server.xml
+    - name: restart tomcat10
+      ansible.builtin.service:
+        name: tomcat10
+        state: restarted
+...      
+ 

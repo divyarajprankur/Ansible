@@ -1,0 +1,11 @@
+---
+- name: Install Software Packages
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install/Uninstall packages
+      ansible.builtin.apt:
+        name: "{{a}}"
+        state: "{{b}}"
+        update_cache: "{{c}}"
+...

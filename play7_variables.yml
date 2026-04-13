@@ -1,0 +1,20 @@
+---
+- name: Variable Practice
+  hosts: localhost
+  vars:
+    a: 5
+    b: 6.7
+    c: "DivyarajPraankur"
+    d: divyarajprankur
+    e: true
+    f: false
+  gather_facts: false
+  tasks:
+    - ansible.builtin.debug:
+        msg:
+          - "a value : {{a}} and its data type is: {{a|ansible.builtin.type_debug}}"
+          - "b value : {{b}} and its data type is: {{b|ansible.builtin.type_debug}}"
+          - "c value : {{c}} and its data type is: {{c|ansible.builtin.type_debug}}"
+          - "d value : {{d}} and its data type is: {{d|ansible.builtin.type_debug}}"
+          - "e value : {{e}} and its data type is: {{e|ansible.builtin.type_debug}}"
+          - "f value : {{f}} and its data type is: {{f|ansible.builtin.type_debug}}"

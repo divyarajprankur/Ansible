@@ -1,0 +1,4 @@
+Copy module is used to transfer files from controller to managed nodes.
+It can also create files with specified content on remote servers.
+It works using simple Ansible ad-hoc commands or playbooks.
+It does not support appending; entire file must be copied again for changes.

@@ -1,0 +1,19 @@
+#installing git on remote amchine and cloning repo
+
+---
+- name : Install GIT and CLONE GIT Repo
+  hosts: all
+  gather_facts: yes
+  become: yes 
+  tasks:
+    - name: INSTALLING GIT
+      ansible.builtin.apt:
+        name: git
+        state: present
+        update_cache: yes
+    - name: clone GIT Repo
+      ansible.builtin.git:
+        repo: https://github.com/divyarajprankur/jenkins.git
+        dest: /ubuntu/home/mygitrepo
+...
+

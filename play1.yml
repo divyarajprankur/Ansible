@@ -1,0 +1,9 @@
+---
+- name: First play book for printing the messages
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: printing message 
+      ansible.builtin.debug:
+        msg: "welcome to ansible playbook"
+...
