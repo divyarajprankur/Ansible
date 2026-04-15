@@ -17,7 +17,6 @@
           - "first num: {{mylist[-5]}}"
           - "second num: {{mylist[-4]}}" 
           - "fist num with filter: {{mylist | first}}"
-          - "last num with filter: {{mylist | last}}" 
           - "last num with filter: {{mylist | last}}"
           - "mergedlist is :{{mergedlist}}"  
     - ansible.builtin.set_fact:
