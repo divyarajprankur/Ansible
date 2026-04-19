@@ -1,0 +1,12 @@
+---
+- name: Play to get python Version
+  hosts: "{{target}}"
+  gather_facts: false
+  tasks:
+    - name: Executing python version command with command module
+      ansible.builtin.command:
+        cmd: ' python3 --version'
+      register: pyversion    
+    - name: Displaying python version using debug module 
+      ansible.builtin.debug:
+        msg: "{{pyversion.stdout}}"
