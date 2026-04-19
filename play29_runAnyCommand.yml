@@ -1,0 +1,17 @@
+---
+- name: Play To Execute Any Command
+  hosts: "{{target}}"
+  gather_facts: false
+  tasks:
+    - name : Executing Command
+      ansible.builtin.command:
+        cmd: "{{inputcmd}}"
+      register: opcmd
+    - name: Displayng Result
+      ansible.builtin.debug:
+        msg: "{{opcmd.stdout}}"
+      when: "{{opcmd.stdout| length != 0}}"
+    - name: Displayng Result
+      ansible.builtin.debug:
+        msg: "{{opcmd.stderr}}"
+      when: "{{opcmd.stderr| length != 0}}"
