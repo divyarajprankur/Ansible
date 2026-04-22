@@ -1,0 +1,20 @@
+--- 
+- name: Install nginx, start nginx and disply the status 
+  hosts: localhost
+  gather_facts: false 
+  tasks:
+    - block:
+        - name: Installing nginx 
+          ansible.builtin.apt:
+            name: nginx 
+            state: present 
+        - name: Starting nginx 
+          ansible.builtin.service:
+            name: nginx
+            state: started 
+      become: yes
+    - name: Finding the status
+      ansible.builtin.service_facts:
+    - name: Displaying status of nginx 
+      ansible.builtin.debug:
+        msg: "{{ansible_facts.services['nginx.service']}}" 
