@@ -1,0 +1,21 @@
+---
+- name: Play to install nginx and then to start it 
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install Nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present  
+        update_cache: yes
+      register: iout
+    - name: Display Outut
+      ansible.builtin.debug:
+        msg: "{{iout}}"
+      when: iout.changed == true
+    - name : start Nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+      when: iout.changed == true
+
