@@ -1,0 +1,21 @@
+---
+- name: SETTING JAVA HOME
+  hosts: all
+  gather_facts: true
+  become: yes
+  tasks:
+    - name: Downloading required tar file
+      ansible.builtin.get_url:
+        url: https://download.oracle.com/java/26/latest/jdk-26_linux-aarch64_bin.tar.gz
+        dest: /opt/jdk-26_linux-aarch64_bin.tar.gz
+      delegate_to: localhost
+      run_once: true
+    - name: Extracting tar.gz file
+      ansible.builtin.unarchive:
+        src: /opt/jdk-26_linux-aarch64_bin.tar.gz
+        dest: /opt
+    - name: Setting JAVA_HOME ENV Variable 
+      ansible.builtin.lineinfile:
+        path: /etc/environment
+        line: "export JAVA_HOME=/opt/jdk-26.0.1"
+        state: present
