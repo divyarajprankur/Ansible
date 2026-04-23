@@ -1,0 +1,14 @@
+---
+- name: Setting JAVA_HOME 
+  hosts: all
+  gather_facts: false
+  vars: 
+    url: "https://download.java.net/java/GA/jdk25.0.2/b1e0dfa218384cb9959bdcb897162d4e/10/GPL/openjdk-25.0.2_linux-x64_bin.tar.gz"
+    targzFileName: "{{(url| split('/'))[-1]}}" 
+    reqjavaversion: "{{((targzFileName| split('_'))[0]| split('-'))[1]}}"
+  tasks:
+    - name: printing
+      debug:
+        msg: "{{targzFileName}}"
+    - debug:
+        msg: "{{reqjavaversion}}"
