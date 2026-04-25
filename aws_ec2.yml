@@ -1,0 +1,12 @@
+---
+plugin: amazon.aws.aws_ec2
+regions:
+  - us-east-1
+  - ap-south-1
+  - us-east-2
+  - ap-south-2
+leading_separator: False
+keyed_groups:
+  - key: tags.Env
+filters:
+  instance-state-name: running  

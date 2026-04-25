@@ -1,0 +1,8 @@
+[defaults]
+inventory = ./aws_ec2.yml
+host_key_checking = False
+forks = 10
+collections_path = /home/ansadmin/dynamic_inventory/collections
+use_contrib_script_compatible_sanitization: True
+interpreter_python=auto_silent
+
