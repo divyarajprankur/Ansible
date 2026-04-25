@@ -1,0 +1,8 @@
+- name: Test encrypted string
+  hosts: localhost
+  vars_files:
+    - secrets.yml
+  tasks:
+    - name: Print password
+      debug:
+        msg: "Password is {{ db_password }}"

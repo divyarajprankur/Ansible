@@ -1,0 +1,8 @@
+- name: Test vault
+  hosts: localhost
+  vars_files:
+    - secrets.yml
+  tasks:
+    - name: Print user
+      debug:
+        msg: "User is {{ db_user }}"

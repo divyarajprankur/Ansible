@@ -1,0 +1,11 @@
+ansible_info:
+  line1: "Ansible is an open-source automation tool."
+  line2: "It is used for configuration management and deployment."
+  line3: "Ansible uses YAML for writing playbooks."
+  line4: "It works in an agentless manner using SSH."
+  line5: "Ansible supports cloud provisioning like AWS and Azure."
+  line6: "Playbooks define tasks to be executed on hosts."
+  line7: "Inventory files define target systems."
+  line8: "Modules are used to perform actions on remote systems."
+  line9: "Roles help organize playbooks into reusable components."
+  line10: "Ansible Vault is used to encrypt sensitive data."
